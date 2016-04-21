@@ -156,7 +156,7 @@ try:
                                 prev_piece = NP.roll(prev_piece, 4, axis=1)
                                 prev_piece[:, :4] = (label[:, 0] / (image_size / 2.0) - 1) if i == -3 else predict_piece
                                 label_piece = label[:, i + 3] / (image_size / 2.0) - 1
-				predict_piece = model.predict_on_batch([data_piece, prev_piece])
+				predict_piece = model.predict_on_batch([data_piece, prev_piece])[0]
 				loss_piece = ((predict_piece - label_piece) ** 2).sum() / batch_size
 				left = (NP.max([predict_piece[:, 0], label_piece[:, 0]], axis=0) + 1) * (image_size / 2.0)
 				top = (NP.max([predict_piece[:, 1], label_piece[:, 1]], axis=0) + 1) * (image_size / 2.0)
@@ -191,7 +191,7 @@ try:
                                 prev_piece = NP.roll(prev_piece, 4, axis=1)
                                 prev_piece[:, :4] = (label[:, 0] / (image_size / 2.0) - 1) if i == -3 else predict_piece
                                 label_piece = label[:, i + 3] / (image_size / 2.0) - 1
-				predict_piece = model.predict_on_batch([data_piece, prev_piece])
+				predict_piece = model.predict_on_batch([data_piece, prev_piece])[0]
 				loss_piece = ((predict_piece - label_piece) ** 2).sum() / batch_size
 				left = (NP.max([predict_piece[:, 0], label_piece[:, 0]], axis=0) + 1) * (image_size / 2.0)
 				top = (NP.max([predict_piece[:, 1], label_piece[:, 1]], axis=0) + 1) * (image_size / 2.0)
