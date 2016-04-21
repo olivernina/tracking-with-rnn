@@ -4,7 +4,7 @@ Videos and codebase of [First step toward model-free, anonymous object tracking 
 
 ## Requirements
 
-All models require [Theano](https://github.com/Theano/Theano) to train & test.
+All models require [Theano=0.9](https://github.com/Theano/Theano) to train & test.
 
 Additionally, **ConvTracker** requires [keras](https://github.com/fchollet/keras).
 
